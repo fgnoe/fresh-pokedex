@@ -2,7 +2,10 @@
   "name": "fresh-pokedex",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://fgnoe.github.io/fresh-pokedex",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
@@ -15,6 +18,7 @@
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",
+    "gh-pages": "^4.0.0",
     "typescript": "^4.5.4",
     "vite": "^2.8.0"
   }
