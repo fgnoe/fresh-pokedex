@@ -4,7 +4,8 @@
 set -e
 
 # build
-npm run build
+tsc
+vite build
 
 # navigate into the build output directory
 cd dist

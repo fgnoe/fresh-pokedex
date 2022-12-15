@@ -1,15 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
+import MainPage from './MainPage'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: <MainPage />,
     },
-], {basename: "/fresh-pokedex"});
+]);
 
 ReactDOM.render(
   <React.StrictMode>

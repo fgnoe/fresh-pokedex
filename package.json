@@ -5,12 +5,15 @@
   "homepage": "https://fgnoe.github.io/fresh-pokedex",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/fresh-pokedex/",
+    "build": "tsc && vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "tsc && vite build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.0",
     "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
