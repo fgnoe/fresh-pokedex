@@ -13,15 +13,17 @@ const router = createBrowserRouter([
 ], {basename: "/fresh-pokedex"});
 
 ReactDOM.render(
-    <ThemeProvider
-        defaultTheme="system"
-        attribute="class"
-        value={{
-            light: "light",
-            dark: "dark",
-        }}
-    >
-        <RouterProvider router={router}/>
-    </ThemeProvider>,
+    <React.StrictMode>
+        <ThemeProvider
+            defaultTheme="system"
+            attribute="class"
+            value={{
+                light: "light",
+                dark: "dark",
+            }}
+        >
+                <RouterProvider router={router}/>
+        </ThemeProvider>
+    </React.StrictMode>,
     document.getElementById('root')
 )
