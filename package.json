@@ -5,7 +5,7 @@
   "homepage": "https://fgnoe.github.io/fresh-pokedex",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=./",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
