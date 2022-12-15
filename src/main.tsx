@@ -11,7 +11,7 @@ const router = createBrowserRouter([
         element: <MainPage/>,
         errorElement: <ErrorBoundary/>,
     },
-], {basename: "/fresh-pokedex"});
+], {basename: "/fresh-pokedex/"});
 
 function ErrorBoundary() {
     let error = useRouteError();
