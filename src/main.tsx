@@ -10,7 +10,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <MainPage/>,
     },
-], {basename: "/fresh-pokedex/"});
+]);
 
 ReactDOM.render(
     <React.StrictMode>
