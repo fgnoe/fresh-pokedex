@@ -1,24 +1,24 @@
 import React from 'react';
-import {Box, Card, CardContent, CardMedia, Paper, Typography} from "@mui/material";
+import {Card, Col, Text} from "@nextui-org/react";
 
 const PokemonCard = () => {
     return (
-        <Paper elevation={24}>
-            <Card sx={{ maxWidth: 345 }}>
-                <Box mb={-5} mt={-1}>
-                    <CardMedia
-                        component="img"
-                        height="140"
-                        image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
-                    />
-                    </Box>
-                <CardContent>
-                    <Typography gutterBottom variant="h6" component="div">
+        <Card css={{ w: "130px", h: "190px" }}>
+            <Card.Header css={{ position: "absolute", zIndex: 1, top: 12, }}>
+                <Col>
+                    <Text h4 color="white">
                         Squirtle
-                    </Typography>
-                </CardContent>
-            </Card>
-        </Paper>
+                    </Text>
+                </Col>
+            </Card.Header>
+            <Card.Image
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+                width="100%"
+                css={{marginTop: 14}}
+                height={150}
+                objectFit="contain"
+            />
+        </Card>
     );
 }
 
