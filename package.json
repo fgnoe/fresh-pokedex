@@ -2,7 +2,7 @@
   "name": "fresh-pokedex",
   "private": false,
   "version": "0.0.2",
-  "homepage": "https://fgnoe.github.io/fresh-pokedex",
+  "homepage": "https://fgnoe.github.io/fresh-pokedex/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build --base=./",
