@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@nextui-org/react": "^1.0.0-beta.10",
+    "daisyui": "^2.45.0",
+    "gh-pages": "^4.0.0",
     "next-themes": "^0.2.1",
     "path": "^0.12.7",
     "react": "^17.0.2",
