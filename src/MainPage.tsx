@@ -16,18 +16,14 @@ const themes = [
 ]
 
 function MainPage() {
-    const [themeIdx, setThemeIdx] = useState(0);
-    useEffect(() => {
-        const id = setInterval(() =>
-            setThemeIdx((oldCount) => (oldCount + 1) % themes.length), 1000);
-        return () => {
-            clearInterval(id);
-        };
-    }, []);
+    const [themeIdx, setThemeIdx] = useState(1);
+    const setRandomTheme = () => {
+        setThemeIdx(Math.floor(Math.random() * themes.length));
+    }
     return (
         <div className="App" data-theme={themes[themeIdx]}>
             <header className="App-header">
-                <PokemonCard/>
+                <PokemonCard onClick={setRandomTheme}/>
             </header>
         </div>
     )
