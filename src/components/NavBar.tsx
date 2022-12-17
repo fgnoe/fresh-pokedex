@@ -2,13 +2,19 @@
 type NavBarProps = {
     darkMode: boolean;
     setDarkMode: (darkMode: boolean) => void;
+    searchTerm: string;
+    setSearchTerm: (searchTerm: string) => void;
 }
 
-const NavBar = ({darkMode, setDarkMode}: NavBarProps) => {
+const NavBar = ({darkMode, setDarkMode, searchTerm, setSearchTerm}: NavBarProps) => {
     return (
         <div className="navbar bg-base-200">
             <div className="navbar-start">
                 <a className="btn">Pokedex</a>
+            </div>
+            <div className="form-control navbar-center">
+                <input type="text" placeholder="Search" className="input input-bordered"
+                       value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
             </div>
             <div className="navbar-end">
                 <a className="text-xs">Dark Mode</a>

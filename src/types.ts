@@ -1,4 +1,4 @@
-export type Pokemon = {
-    id: number;
+export type BasicPokemonInfo = {
     name: string;
+    url: string;
 };

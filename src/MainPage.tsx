@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import {createBrowserRouter, RouterProvider, useRouteError} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import PokemonList from "./components/pokemon-list/PokemonList";
+import useDebounce from "./hooks/useDebounce";
 
 // const themes = [
 //     'light', 'dark', 'cupcake',
@@ -24,10 +25,13 @@ const ErrorBoundary = () => {
 }
 
 function MainPage() {
+    const [searchTerm, setSearchTerm] = useState('');
+    const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <PokemonList />,
+            element: <PokemonList searchTerm={debouncedSearchTerm} />,
             errorElement: <ErrorBoundary/>,
         },
     ], {basename: "/fresh-pokedex/"});
@@ -36,7 +40,12 @@ function MainPage() {
     return (
         <div className="App" data-theme={darkMode ? 'dark' : 'cupcake'}>
             <header className="App-header">
-                <NavBar setDarkMode={setDarkMode} darkMode={darkMode}/>
+                <NavBar
+                    setDarkMode={setDarkMode}
+                    darkMode={darkMode}
+                    searchTerm={searchTerm}
+                    setSearchTerm={setSearchTerm}
+                />
                 <RouterProvider router={router}/>
             </header>
         </div>
