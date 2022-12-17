@@ -19,11 +19,11 @@ const PokemonCard = ({pokemonId}: PokemonCardProps) => {
     }, []);
 
     return (
-        <div className="card w-60 bg-base-100 shadow-xl ml-2 mr-2 mt-2">
+        <div className="card w-50 bg-base-100 shadow-xl ml-2 mr-2 mt-2">
             <figure className="px-10 mt-10">
-                <img src={pokemon?.sprites?.front_default} className={'-mb-5'} />
+                <img src={pokemon?.sprites?.front_default} />
             </figure>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center -mt-5">
                 <h2 className="card-title">{pokemon?.species?.name}</h2>
             </div>
         </div>
