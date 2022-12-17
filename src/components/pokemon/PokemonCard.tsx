@@ -1,30 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import pokeapi from "../utils/pokeapi";
+import React from 'react';
+import {BasicPokemonInfo} from "../../types";
 
 type PokemonCardProps = {
-    name: string;
-    detailsUrl: string;
+    pokemon: BasicPokemonInfo
 };
 
-const PokemonCard = ({name, detailsUrl}: PokemonCardProps) => {
-    const [pokemon, setPokemon] = useState<any>(null);
-    useEffect(() => {
-        pokeapi.get(detailsUrl)
-            .then((response: any) => {
-                setPokemon(response.data);
-            })
-            .catch((error: any) => {
-                console.error(error);
-            });
-    }, []);
-
+const PokemonCard = ({pokemon}: PokemonCardProps) => {
     return (
         <div className="card w-50 bg-base-100 shadow-xl ml-2 mr-2 mt-2">
             <figure className="px-10 mt-10">
-                <img src={pokemon?.sprites?.front_default}/>
+                <img src={pokemon.baseSprite}/>
             </figure>
             <div className="card-body items-center text-center -mt-5">
-                <h2 className="card-title">{name}</h2>
+                <h2 className="card-title capitalize">{pokemon.name}</h2>
             </div>
         </div>
     );

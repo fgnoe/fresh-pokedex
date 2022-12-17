@@ -14,7 +14,6 @@
     "@headlessui/react": "^1.7.6",
     "@heroicons/react": "^2.0.13",
     "axios": "^1.2.1",
-    "axios-cache-plugin": "^0.1.0",
     "daisyui": "^2.45.0",
     "gh-pages": "^4.0.0",
     "path": "^0.12.7",

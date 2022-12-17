@@ -26,7 +26,7 @@ const ErrorBoundary = () => {
 
 function MainPage() {
     const [searchTerm, setSearchTerm] = useState('');
-    const debouncedSearchTerm = useDebounce(searchTerm, 500);
+    const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
     const router = createBrowserRouter([
         {

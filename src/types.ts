@@ -1,4 +1,7 @@
 export type BasicPokemonInfo = {
+    id: number;
     name: string;
-    url: string;
+    baseSprite: string;
+    officialArtworkSprite?: string | null;
+    dreamWorldSprite?: string | null;
 };
