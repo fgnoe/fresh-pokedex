@@ -12,7 +12,7 @@ const NavBar = ({darkMode, setDarkMode, searchTerm, setSearchTerm}: NavBarProps)
             <div className="navbar-start">
                 <a className="btn btn-ghost bg-base-300 capitalize">Pokedex</a>
             </div>
-            <div className="form-control navbar-center pl-3">
+            <div className="form-control navbar-center pl-3 pr-3">
                 <input
                     type="text"
                     placeholder="Search"
@@ -25,7 +25,7 @@ const NavBar = ({darkMode, setDarkMode, searchTerm, setSearchTerm}: NavBarProps)
                 <a className="text-xs">Dark Mode</a>
                 <input
                     type="checkbox"
-                    className="toggle ml-2"
+                    className="toggle ml-1"
                     checked={darkMode}
                     onClick={() => setDarkMode(!darkMode)}
                 />

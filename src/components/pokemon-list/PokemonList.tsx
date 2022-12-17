@@ -1,12 +1,25 @@
 import PokemonCard from "../pokemon/PokemonCard";
 import './PokemonList.css'
 import pokemonList from '../../resources/pokemonList.json';
+import {useEffect} from "react";
 
 type PokemonListProps = {
     searchTerm: string;
 }
 
+const preloadBackImages = () => {
+    pokemonList.forEach(pokemon => {
+        new Image().src = pokemon.baseSprite
+            //TODO: add back image to preloaded list
+            .replace('sprites/pokemon/', 'sprites/pokemon/back/');
+    })
+}
+
 const PokemonList = ({searchTerm} :PokemonListProps) => {
+    useEffect(() => {
+        preloadBackImages();
+    }, []);
+
     const cards = pokemonList
         .filter(({name}) => name.includes(searchTerm))
         .map(pokemon => {

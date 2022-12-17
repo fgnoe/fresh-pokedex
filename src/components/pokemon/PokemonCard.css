@@ -1,0 +1,17 @@
+@keyframes sprite-rotation-out {
+    from {transform: rotateY(0deg);}
+    to {transform: rotateY(90deg);}
+}
+
+@keyframes sprite-rotation-in {
+    from {transform: rotateY(-90deg);}
+    to {transform: rotateY(0deg);}
+}
+
+.card-rotation-out {
+    animation: sprite-rotation-out 300ms ease-in;
+}
+
+.card-rotation-in {
+    animation: sprite-rotation-in 300ms ease-out;
+}
