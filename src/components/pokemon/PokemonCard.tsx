@@ -1,15 +1,8 @@
 import React from 'react';
 
-type PokemonCardProps = {
-    onClick: () => void;
-}
-
-const PokemonCard = ({
-     onClick,
-}: PokemonCardProps) => {
+const PokemonCard = () => {
     return (
-
-        <div className="card w-60 bg-base-100 shadow-xl" onClick={onClick}>
+        <div className="card w-60 bg-base-100 shadow-xl">
             <figure className="px-10 mt-10">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" className={'-mb-5'} />
             </figure>

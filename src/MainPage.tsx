@@ -1,29 +1,43 @@
-import PokemonCard from './components/pokemon/PokemonCard'
 import './MainPage.css'
-import {useEffect, useState} from "react";
+import React, {useState} from "react";
+import {createBrowserRouter, RouterProvider, useRouteError} from "react-router-dom";
+import NavBar from "./components/NavBar";
+import PokemonList from "./components/pokemon-list/PokemonList";
 
-const themes = [
-    'light', 'dark', 'cupcake',
-    'bumblebee', 'emerald', 'corporate',
-    'synthwave', 'retro', 'cyberpunk',
-    'valentine', 'halloween', 'garden',
-    'forest', 'aqua', 'lofi',
-    'pastel', 'fantasy', 'wireframe',
-    'black', 'luxury', 'dracula',
-    'cmyk', 'autumn', 'business',
-    'acid', 'lemonade', 'night',
-    'coffee', 'winter',
-]
+// const themes = [
+//     'light', 'dark', 'cupcake',
+//     'bumblebee', 'emerald', 'corporate',
+//     'synthwave', 'retro', 'cyberpunk',
+//     'valentine', 'halloween', 'garden',
+//     'forest', 'aqua', 'lofi',
+//     'pastel', 'fantasy', 'wireframe',
+//     'black', 'luxury', 'dracula',
+//     'cmyk', 'autumn', 'business',
+//     'acid', 'lemonade', 'night',
+//     'coffee', 'winter',
+// ];
+
+const ErrorBoundary = () => {
+    let error = useRouteError();
+    console.error(error);
+    return <div>Dang!</div>;
+}
 
 function MainPage() {
-    const [themeIdx, setThemeIdx] = useState(1);
-    const setRandomTheme = () => {
-        setThemeIdx(Math.floor(Math.random() * themes.length));
-    }
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <PokemonList />,
+            errorElement: <ErrorBoundary/>,
+        },
+    ], {basename: "/fresh-pokedex/"});
+
+    const [darkMode, setDarkMode] = useState(true);
     return (
-        <div className="App" data-theme={themes[themeIdx]}>
+        <div className="App" data-theme={darkMode ? 'dark' : 'cupcake'}>
             <header className="App-header">
-                <PokemonCard onClick={setRandomTheme}/>
+                <NavBar setDarkMode={setDarkMode} darkMode={darkMode}/>
+                <RouterProvider router={router}/>
             </header>
         </div>
     )

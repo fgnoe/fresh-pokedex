@@ -3,24 +3,12 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import MainPage from './MainPage'
 import {createBrowserRouter, RouterProvider, useRouteError} from "react-router-dom";
+import NavBar from "./components/NavBar";
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <MainPage/>,
-        errorElement: <ErrorBoundary/>,
-    },
-], {basename: "/fresh-pokedex/"});
-
-function ErrorBoundary() {
-    let error = useRouteError();
-    console.error(error);
-    return <div>Dang!</div>;
-}
 
 ReactDOM.render(
     <React.StrictMode>
-        <RouterProvider router={router}/>
+        <MainPage/>
     </React.StrictMode>,
     document.getElementById('root')
 )
