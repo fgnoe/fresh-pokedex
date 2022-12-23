@@ -35,7 +35,7 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
                         onClick={() => setFront(!front)}
                     />
                 </div>
-                <h2 className="card-title capitalize">{pokemon.name}</h2>
+                <h2 className="card-title capitalize">{`${pokemon.id} ${pokemon.name}`}</h2>
             </div>
         </div>
     );
