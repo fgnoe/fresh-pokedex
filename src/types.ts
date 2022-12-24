@@ -6,6 +6,18 @@ export type PreloadedPokemonInfo = {
     dreamWorldSprite?: string | null;
 };
 
+export type Species = {
+    evolution_chain: {
+        url: string;
+    };
+    flavor_text_entries: {
+        flavor_text: string;
+        language: {
+            name: string;
+        }
+    }[];
+}
+
 export type Ability = {
     name: string;
 }

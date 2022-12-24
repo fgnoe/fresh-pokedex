@@ -5,6 +5,10 @@ const PokemonDetails = ({}) => {
     const { pokemonId } = useParams();
     const {data: pokemon, isLoading} = usePokemon(pokemonId);
 
+    const baseDescription = pokemon?.species.flavor_text_entries
+        .find(frame => frame.language.name == 'en')
+        ?.flavor_text;
+
     return (<>
         {isLoading || !pokemon
             ? <div>Loading...</div>
@@ -12,7 +16,7 @@ const PokemonDetails = ({}) => {
                 <img src={pokemon.sprites.front_default} alt={pokemon.name}/>
                 <h1 className="text-4xl capitalize">{pokemon.name}</h1>
                 <div className="mt-5 ml-1 text-lg">
-                    <p>{pokemon.species.flavor_text_entries[0].flavor_text}</p>
+                    <p>{baseDescription}</p>
                 </div>
             </div>}
     </>)
