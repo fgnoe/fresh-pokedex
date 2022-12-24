@@ -27,7 +27,7 @@ const Footer = () => {
                 <div className="grid mt-2 grid-flow-col gap-4">
                     <a href="https://www.linkedin.com/in/nnflores/"><FontAwesomeIcon className="text-2xl link link-hover" icon={faLinkedin}/></a>
                     <a href="https://github.com/fgnoe/fresh-pokedex"><FontAwesomeIcon className="text-2xl link link-hover" icon={faGithub}/></a>
-                </div>K
+                </div>
             </div>
         </footer>
     )
