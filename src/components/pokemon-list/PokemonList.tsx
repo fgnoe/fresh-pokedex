@@ -21,7 +21,7 @@ const PokemonList = ({searchTerm} :PokemonListProps) => {
     }, []);
 
     const cards = pokemonList
-        .slice(0, 50)
+        .slice(0, 151)
         .filter(({name}) => name.toLowerCase().includes(searchTerm?.toLowerCase()))
         .map(pokemon => {
             return <PokemonCard
