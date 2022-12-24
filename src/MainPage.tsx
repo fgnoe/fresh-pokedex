@@ -40,7 +40,7 @@ function MainPage() {
             element : <PokemonDetails />,
             errorElement: <ErrorBoundary />
         }
-    ], {basename: "/fresh-pokedex/"});
+    ],);
 
     const [darkMode, setDarkMode] = useState(true);
     return (
