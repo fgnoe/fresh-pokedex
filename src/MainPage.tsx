@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import PokemonList from "./components/pokemon-list/PokemonList";
 import useDebounce from "./hooks/useDebounce";
 import PokemonDetails from "./components/pokemon/PokemonDetails";
+import Footer from "./Footer";
 
 // const themes = [
 //     'light', 'dark', 'cupcake',
@@ -44,15 +45,16 @@ function MainPage() {
 
     const [darkMode, setDarkMode] = useState(true);
     return (
-        <div className="App" data-theme={darkMode ? 'dark' : 'cupcake'}>
-            <header className="App-header">
+        <div className="App flex flex-col" data-theme={darkMode ? 'dark' : 'cupcake'}>
+            <header className="App-header flex flex-col min-h-screen">
                 <NavBar
                     setDarkMode={setDarkMode}
                     darkMode={darkMode}
                     searchTerm={searchTerm}
                     setSearchTerm={setSearchTerm}
                 />
-                <RouterProvider router={router}/>
+                    <RouterProvider router={router}/>
+                <Footer />
             </header>
         </div>
     )
