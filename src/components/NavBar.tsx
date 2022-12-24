@@ -10,7 +10,7 @@ const NavBar = ({darkMode, setDarkMode, searchTerm, setSearchTerm}: NavBarProps)
     return (
         <div className="navbar bg-base-200">
             <div className="navbar-start">
-                <a className="btn btn-ghost bg-base-300 capitalize">Pokedex</a>
+                <a href="/" className="btn btn-ghost bg-base-300 capitalize">Pokedex</a>
             </div>
             <div className="form-control navbar-center pl-3 pr-3">
                 <input
