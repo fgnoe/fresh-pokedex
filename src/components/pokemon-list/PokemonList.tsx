@@ -23,7 +23,10 @@ const PokemonList = ({searchTerm} :PokemonListProps) => {
     const cards = pokemonList
         .filter(({name}) => name.includes(searchTerm))
         .map(pokemon => {
-            return <PokemonCard key={pokemon.id} pokemon={pokemon}/>;
+            return <PokemonCard
+                key={pokemon.id}
+                pokemon={pokemon}
+            />;
     });
 
     return <div className="pokemon-list">

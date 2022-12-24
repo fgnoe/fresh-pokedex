@@ -2,13 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import MainPage from './MainPage'
-import {createBrowserRouter, RouterProvider, useRouteError} from "react-router-dom";
-import NavBar from "./components/NavBar";
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
 
 
 ReactDOM.render(
     <React.StrictMode>
-        <MainPage/>
+        <QueryClientProvider client={queryClient}>
+            <MainPage/>
+        </QueryClientProvider>
     </React.StrictMode>,
     document.getElementById('root')
 )

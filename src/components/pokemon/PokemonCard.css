@@ -15,3 +15,11 @@
 .card-rotation-in {
     animation: sprite-rotation-in 300ms ease-out;
 }
+
+.pokemon-card-img {
+    cursor: pointer;
+}
+
+.pokemon-card-title {
+    cursor: pointer;
+}

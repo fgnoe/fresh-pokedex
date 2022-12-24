@@ -4,6 +4,7 @@ import {createBrowserRouter, RouterProvider, useRouteError} from "react-router-d
 import NavBar from "./components/NavBar";
 import PokemonList from "./components/pokemon-list/PokemonList";
 import useDebounce from "./hooks/useDebounce";
+import PokemonDetails from "./components/pokemon/PokemonDetails";
 
 // const themes = [
 //     'light', 'dark', 'cupcake',
@@ -32,8 +33,13 @@ function MainPage() {
         {
             path: "/",
             element: <PokemonList searchTerm={debouncedSearchTerm} />,
-            errorElement: <ErrorBoundary/>,
+            errorElement: <ErrorBoundary />,
         },
+        {
+            path: '/pokemon/:pokemonId',
+            element : <PokemonDetails />,
+            errorElement: <ErrorBoundary />
+        }
     ], {basename: "/fresh-pokedex/"});
 
     const [darkMode, setDarkMode] = useState(true);

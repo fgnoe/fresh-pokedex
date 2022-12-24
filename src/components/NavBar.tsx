@@ -27,7 +27,7 @@ const NavBar = ({darkMode, setDarkMode, searchTerm, setSearchTerm}: NavBarProps)
                     type="checkbox"
                     className="toggle ml-1"
                     checked={darkMode}
-                    onClick={() => setDarkMode(!darkMode)}
+                    onChange={() => setDarkMode(!darkMode)}
                 />
             </div>
         </div>
