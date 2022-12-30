@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {PreloadedPokemonInfo} from "../../types";
+import React, {useEffect, useState} from 'react';
+import {PreloadedPokemonInfo} from "../../types/types";
 import './PokemonCard.css'
 import useDebounce from "../../hooks/useDebounce";
 import classNames from "classnames";
@@ -12,7 +12,21 @@ type PokemonCardProps = {
 const PokemonCard = ({pokemon}: PokemonCardProps) => {
     let navigate = useNavigate();
     const [front, setFront] = useState(true);
+    const [shiny, setShiny] = useState(false);
     const debouncedFront = useDebounce(front, 300);
+
+    useEffect(() => {
+        if(shiny) {
+            setTimeout(() => {
+                setShiny(false);
+            }, 3000);
+        } else {
+            setTimeout(() => {
+                setShiny(true);
+            }, Math.random() * 50000);
+        }
+    }, [shiny])
+
     const classes = classNames(
         'pokemon-card-img',
         {
@@ -20,9 +34,13 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
             'card-rotation-in': front === debouncedFront,
         },
     );
+
+    const sprites = shiny
+        ? { front: pokemon.baseShinySprite, back: pokemon.backShinySprite}
+        : { front: pokemon.baseSprite, back: pokemon.backSprite};
     const imgUrl = debouncedFront
-        ? pokemon.baseSprite //TODO: add back image to preloaded list
-        : pokemon.baseSprite.replace('sprites/pokemon/', 'sprites/pokemon/back/');
+        ? sprites.front
+        : sprites.back;
 
     return (
         <div className="card w-50 bg-base-100 shadow-xl ml-2 mr-2 mt-2">
