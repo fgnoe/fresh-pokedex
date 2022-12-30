@@ -23,7 +23,7 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
         } else {
             setTimeout(() => {
                 setShiny(true);
-            }, Math.random() * 50000);
+            }, Math.random() * 30000);
         }
     }, [shiny])
 
