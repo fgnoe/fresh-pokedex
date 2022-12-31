@@ -57,7 +57,7 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
                     onClick={() => navigate(`/pokemon/${pokemon.id}`)}
                     className="card-title capitalize pokemon-card-title"
                 >
-                    {pokemon.name}
+                    {`${pokemon.id}: ${pokemon.name}`}
                 </h2>
             </div>
         </div>
