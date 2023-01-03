@@ -46,7 +46,7 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
         <div className="card w-50 bg-base-100 shadow-xl ml-2 mr-2 mt-2">
             <figure className="px-10 mt-10">
                 <img
-                    key={`pokemon-${pokemon.id}-${front}`}
+                    key={`pokemon-${pokemon.id}-${debouncedFront}`}
                     className={classes}
                     src={imgUrl}
                     onClick={() => setFront(!front)}
