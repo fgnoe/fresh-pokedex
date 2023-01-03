@@ -12,8 +12,16 @@ type PokemonCardProps = {
 const PokemonCard = ({pokemon}: PokemonCardProps) => {
     let navigate = useNavigate();
     const [front, setFront] = useState(true);
+    const [isAnimationFinished, setIsAnimationFinished] = useState(true);
     const [shiny, setShiny] = useState(false);
     const debouncedFront = useDebounce(front, 300);
+
+    useEffect(() => {
+        setIsAnimationFinished(false);
+        setTimeout(() => {
+            setIsAnimationFinished(true);
+        }, 500);
+    }, [front]);
 
     useEffect(() => {
         if(shiny) {
@@ -29,10 +37,10 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
 
     const classes = classNames(
         'pokemon-card-img',
-        {
+        !isAnimationFinished ? {
             'card-rotation-out': front !== debouncedFront,
             'card-rotation-in': front === debouncedFront,
-        },
+        }: {},
     );
 
     const sprites = shiny
@@ -46,7 +54,7 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
         <div className="card w-50 bg-base-100 shadow-xl ml-2 mr-2 mt-2">
             <figure className="px-10 mt-10">
                 <img
-                    loading="lazy"
+                    key={imgUrl}
                     className={classes}
                     src={imgUrl}
                     onClick={() => setFront(!front)}

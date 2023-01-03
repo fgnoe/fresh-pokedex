@@ -7,4 +7,5 @@ export interface PreloadedPokemonInfo {
     backSprite?: string;
     id: number;
     baseSprite?: string;
+    blurhash?: string;
 };
