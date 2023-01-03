@@ -12,16 +12,8 @@ type PokemonCardProps = {
 const PokemonCard = ({pokemon}: PokemonCardProps) => {
     let navigate = useNavigate();
     const [front, setFront] = useState(true);
-    const [isAnimationFinished, setIsAnimationFinished] = useState(true);
     const [shiny, setShiny] = useState(false);
     const debouncedFront = useDebounce(front, 300);
-
-    useEffect(() => {
-        setIsAnimationFinished(false);
-        setTimeout(() => {
-            setIsAnimationFinished(true);
-        }, 500);
-    }, [front]);
 
     useEffect(() => {
         if(shiny) {
@@ -54,7 +46,7 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
         <div className="card w-50 bg-base-100 shadow-xl ml-2 mr-2 mt-2">
             <figure className="px-10 mt-10">
                 <img
-                    key={imgUrl}
+                    key={`pokemon-${pokemon.id}-${front}`}
                     className={classes}
                     src={imgUrl}
                     onClick={() => setFront(!front)}
