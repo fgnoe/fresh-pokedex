@@ -29,10 +29,10 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
 
     const classes = classNames(
         'pokemon-card-img',
-        !isAnimationFinished ? {
+        {
             'card-rotation-out': front !== debouncedFront,
             'card-rotation-in': front === debouncedFront,
-        }: {},
+        },
     );
 
     const sprites = shiny
