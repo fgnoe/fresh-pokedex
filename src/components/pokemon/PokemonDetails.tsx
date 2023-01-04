@@ -13,6 +13,8 @@ const PokemonDetails = ({}) => {
         {isLoading || !pokemon
             ? <div>Loading...</div>
             : <div className="ml-5 mt-5">
+                <input type="radio" name="radio-1" className="radio" checked />
+                <input type="radio" name="radio-1" className="radio" />
                 <img src={pokemon.sprites.front_default} alt={pokemon.name}/>
                 <h1 className="text-4xl capitalize">{pokemon.name}</h1>
                 <div className="mt-5 ml-1 text-lg">
@@ -21,8 +23,6 @@ const PokemonDetails = ({}) => {
                 <div className="mt-8">  {'Abilities: '}   
                     {pokemon.abilities.map(({ability}) =>
                           <div className="badge ml-2 capitalize">{ability.name}</div>
-                        
-                          
                         )}
                 </div>
             </div>}

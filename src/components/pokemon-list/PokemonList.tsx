@@ -1,9 +1,10 @@
 import PokemonCard from "../pokemon/PokemonCard";
 import './PokemonList.css'
 import pokemonList from '../../resources/pokemonList';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import useDebounce from "../../hooks/useDebounce";
 
-const limit = 151;
+
 
 type PokemonListProps = {
     searchTerm: string;
@@ -11,7 +12,7 @@ type PokemonListProps = {
 
 const preloadedImagesRefs = [];
 
-const preloadBackImages = () => {
+const preloadBackImages = (limit: number) => {
     const preloadImage = (src?: string) => {
         if (!src) return;
 
@@ -30,13 +31,15 @@ const preloadBackImages = () => {
 }
 
 const PokemonList = ({searchTerm} :PokemonListProps) => {
+    const[limit,setLimit]=useState(9)
+    const debouncedLimit = useDebounce(limit, 300);
     useEffect(() => {
-        preloadBackImages();
+        preloadBackImages(debouncedLimit);
     }, []);
 
     const cards = pokemonList
-        .slice(0, limit)
         .filter(({name}) => name.toLowerCase().includes(searchTerm?.toLowerCase()))
+        .slice(0, debouncedLimit)
         .map(pokemon => {
             return <PokemonCard
                 key={pokemon.id}
@@ -44,9 +47,19 @@ const PokemonList = ({searchTerm} :PokemonListProps) => {
             />;
     });
 
-    return <div className="pokemon-list">
+    return <>
+    <input type="range" 
+    min="0" 
+    max="1000" 
+    value={limit} 
+    className="range" 
+    onChange={e => setLimit(parseInt(e.target.value))} />
+
+
+    <div className="pokemon-list">
         {cards}
     </div>
+    </>
 }
 
 export default PokemonList;
