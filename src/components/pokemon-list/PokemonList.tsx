@@ -48,17 +48,20 @@ const PokemonList = ({searchTerm} :PokemonListProps) => {
     });
 
     return <>
-    <input type="range" 
-    min="0" 
-    max="1000" 
-    value={limit} 
-    className="range" 
-    onChange={e => setLimit(parseInt(e.target.value))} />
-
-
-    <div className="pokemon-list">
-        {cards}
-    </div>
+        <input 
+            type="range" 
+            min="1" 
+            max={pokemonList.length} 
+            value={limit} 
+            className="range w-1/3 mx-auto mt-5 mb-1" 
+            onChange={e => setLimit(parseInt(e.target.value))}
+         />
+        <div className="badge badge-md mx-auto">
+            {`Limit: ${limit}`}
+        </div>
+        <div className="pokemon-list">
+            {cards}
+        </div>
     </>
 }
 
