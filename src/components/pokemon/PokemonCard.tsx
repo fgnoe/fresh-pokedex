@@ -43,7 +43,7 @@ const PokemonCard = ({pokemon}: PokemonCardProps) => {
         : sprites.back;
 
     return (
-        <div className="card w-50 bg-base-100 shadow-xl ml-2 mr-2 mt-2">
+        <div className="card w-50 bg-base-100 shadow-xl ml-2 mr-2 mt-2 hover:bg-base-200">
             <figure className="px-10 mt-10">
                 <img
                     key={`pokemon-${pokemon.id}-${debouncedFront}`}
