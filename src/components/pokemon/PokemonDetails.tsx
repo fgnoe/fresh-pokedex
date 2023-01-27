@@ -21,7 +21,12 @@ const PokemonDetails = ({}) => {
                 <div className="mt-8">  {'Abilities: '}   
                     {pokemon.abilities.map(({ability}) =>
                           <div className="badge ml-2 capitalize">{ability.name}</div>
-                        
+
+                        )}
+                </div>
+                <div className="mt-8">  {'Moves: '}   
+                    {pokemon.moves.map(({move}) =>
+                          <div className="badge ml-2 capitalize">{move.name}</div>
                           
                         )}
                 </div>
