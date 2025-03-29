@@ -1,4 +1,3 @@
-# [https://pokedex.one/](https://pokedex.one)
 
 A fresh take on the classic Pokedex. 
 
